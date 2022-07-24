@@ -83,6 +83,9 @@ $Bloatware = @(
     "Microsoft.Todos", "Microsoft.549981C3F5F10_8wekyb3d8bbwe", "Microsoft.Windows.PeopleExperienceHost"
 )
 
+$name = Get-Service "WpnUserService_*" | Select-Object -expand name
+$servicenum = $name.Substring($name.IndexOf("_")+1)
+
 $services = @(
     "diagnosticshub.standardcollector.service", "DiagTrack",
     "dmwappushsvc", "DPS", "MapsBroker", "NetTcpPortSharing",                
@@ -91,8 +94,8 @@ $services = @(
     "MSDTC", "WpcMonSvc", "PhoneSvc", "WPDBusEnum",                        
     "lmhosts", "wisvc", "FontCache", "RetailDemo",                          
     "ALG", "SCardSvr", "EntAppSvc", "edgeupdate",               
-    "edgeupdatem", "SEMgrSvc", "BcastDVRUserService_48486de",               
-    "CaptureService_48486de", "HvHost", "vmickvpexchange",
+    "edgeupdatem", "SEMgrSvc", "BcastDVRUserService_$servicenum",               
+    "CaptureService_$servicenum", "HvHost", "vmickvpexchange",
     "vmicguestinterface", "vmicshutdown", "vmicheartbeat",
     "vmicvmsession", "vmicrdv", "vmictimesync" 
 )
